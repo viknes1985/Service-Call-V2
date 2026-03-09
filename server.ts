@@ -1,15 +1,25 @@
 import express from "express";
 import { createServer as createViteServer } from "vite";
-import Database from "better-sqlite3";
+//import Database from "better-sqlite3";
 import path from "path";
 import fs from "fs";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import mongoose from "mongoose";
+
 // Fix for __dirname in ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const db = new Database("service_call.db");
+//const db = new Database("service_call.db");
+
+mongoose.connect(process.env.MONGODB_URI)
+.then(() => {
+    console.log("MongoDB connected");
+})
+.catch(err => {
+    console.log(err);
+});
 
 // Ensure uploads directory exists
 const UPLOADS_DIR = path.join(process.cwd(), "uploads");
