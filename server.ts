@@ -3,6 +3,11 @@ import { createServer as createViteServer } from "vite";
 import Database from "better-sqlite3";
 import path from "path";
 import fs from "fs";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+// Fix for __dirname in ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const db = new Database("service_call.db");
 
@@ -112,7 +117,7 @@ try {
 
 async function startServer() {
   const app = express();
-  const PORT = 3005;
+  const PORT = process.env.PORT || 3000;
 
   app.use(express.json({ limit: '10mb' }));
   app.use("/uploads", express.static(UPLOADS_DIR));
