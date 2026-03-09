@@ -22,7 +22,7 @@
     "express": "^4.21.2",
     "dotenv": "^17.2.3",
     "better-sqlite3": "^12.4.1",
-    "motion": "^12.23.24"
+    "motion": "^12.23.24",
      "mongoose": "^8.0.0"
   },
   "devDependencies": {
