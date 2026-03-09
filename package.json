@@ -35,3 +35,21 @@
     "@types/express": "^4.17.21"
   }
 }
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::536727724300:root"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "sts:ExternalId": "96288847-ee2b-467b-b992-57c46811de28"
+        }
+      }
+    }
+  ]
+}
